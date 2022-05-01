@@ -10,11 +10,11 @@ namespace Opgave_4
 {
     public class Program
     {
-        static char ch = '*';
+        public static char Ch { get; set; }
 
         static void Main(string[] args)
         {
-
+            Ch = '*';
             Thread printer = new Thread(Print);
             Thread reader = new Thread(ReadInput);
 
@@ -27,13 +27,13 @@ namespace Opgave_4
 
             while (true)
             {
-                //Remembers which key was last pressed
+                //Remembers  last key pressed
                 char chosenKey = Convert.ToChar(Console.ReadKey(true).KeyChar);
 
                 //Sets the ch field to the chosen key, if the enter key gets pressed
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                 {
-                    ch = chosenKey;
+                    Ch = chosenKey;
                     Console.Write("\n");
                 }
             }
@@ -44,7 +44,7 @@ namespace Opgave_4
             //Continuously print the ch character
             while (true)
             {
-                Console.Write(ch);
+                Console.Write(Ch);
 
                 Thread.Sleep(100);
             }
